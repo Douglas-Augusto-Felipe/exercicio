@@ -3,6 +3,7 @@ package App;
 import java.util.Locale;
 import java.util.Scanner;
 
+import entities.Aluno;
 import entities.Employee;
 import entities.rectangle;
 
@@ -12,22 +13,25 @@ public class Main {
         Locale.setDefault(Locale.US);
         Scanner sc = new Scanner(System.in);
 
-        Employee emp = new Employee();
+        Aluno aluno = new Aluno();
 
         System.out.print("Name: ");
-        emp.name = sc.nextLine();
-        System.out.print("Gross Salary: ");
-        emp.grossSalary = sc.nextDouble();
-        System.out.print("Tax: ");
-        emp.tax = sc.nextDouble();
+        aluno.Nome = sc.nextLine();
+        System.out.print("Grade1: ");
+        aluno.Nota1 = sc.nextDouble();
+        System.out.print("Grade2: ");
+        aluno.Nota2 = sc.nextDouble();
+        System.out.print("Grade3: ");
+        aluno.Nota3 = sc.nextDouble();
 
-        System.out.println("Employee: " + emp.name + ", $ " + emp.netSalary());
-        System.out.println("Which percentage to increasy salary? ");
-        double percentage = sc.nextDouble();
-        emp.increasySalary(percentage);
+        System.out.printf("FINAL GRADE: %.2f%n", aluno.FinalGrade());
 
-        System.out.println("Updated data: " + emp);
-
+        if (aluno.FinalGrade() < 60.0) {
+            System.out.println("Failed");
+            System.out.printf("Missing Grade: %,2f", aluno.MissingGrade());
+        } else {
+            System.out.println("Pass");
+        }
         sc.close();
     }
 }
