@@ -28,7 +28,7 @@ public class Main {
 
         if (aluno.FinalGrade() < 60.0) {
             System.out.println("Failed");
-            System.out.printf("Missing Grade: %,2f", aluno.MissingGrade());
+            System.out.printf("Missing Grade endpoints: %.2f", aluno.MissingGrade());
         } else {
             System.out.println("Pass");
         }
