@@ -3,9 +3,7 @@ package App;
 import java.util.Locale;
 import java.util.Scanner;
 
-import entities.Aluno;
-import entities.Employee;
-import entities.rectangle;
+import Util.CurrencyConverter;
 
 public class Main {
     public static void main(String[] args) {
@@ -13,25 +11,12 @@ public class Main {
         Locale.setDefault(Locale.US);
         Scanner sc = new Scanner(System.in);
 
-        Aluno aluno = new Aluno();
+        System.out.print("What is the dollar price: ");
+        CurrencyConverter.dollar = sc.nextDouble();
+        System.out.print("How many dollars will be bought? ");
+        CurrencyConverter.quantityInDollars = sc.nextDouble();
+        System.out.printf("Amount to be paid in reais = %.2f%n", CurrencyConverter.Calculator());
 
-        System.out.print("Name: ");
-        aluno.Nome = sc.nextLine();
-        System.out.print("Grade1: ");
-        aluno.Nota1 = sc.nextDouble();
-        System.out.print("Grade2: ");
-        aluno.Nota2 = sc.nextDouble();
-        System.out.print("Grade3: ");
-        aluno.Nota3 = sc.nextDouble();
-
-        System.out.printf("FINAL GRADE: %.2f%n", aluno.FinalGrade());
-
-        if (aluno.FinalGrade() < 60.0) {
-            System.out.println("Failed");
-            System.out.printf("Missing Grade endpoints: %.2f", aluno.MissingGrade());
-        } else {
-            System.out.println("Pass");
-        }
         sc.close();
     }
 }
