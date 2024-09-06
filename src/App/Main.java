@@ -11,53 +11,24 @@ public class Main {
         Locale.setDefault(Locale.US);
         Scanner sc = new Scanner(System.in);
 
-        Account account;
-       
-        System.out.println("New bank account registration:");
-
-        System.out.println();
-        System.out.print("Enter username: ");
-        String name = sc.nextLine();
-
-        System.out.println();
-        System.out.print("Enter number account: ");
-        int NumberAccount = sc.nextInt();
+        System.err.print("Quantos numeros você vai digitar? ");
+        int n = sc.nextInt();
+        int[] vect = new int[n];
         sc.nextLine();
 
-        System.out.println();
-        System.out.print("is there na initial deposit (y/n)? ");
-        char response = sc.next().charAt(0);
-
-        
-
-        if (response == 'y') {
-            System.out.println();
-            System.out.print("Enter the initial deposit value: ");
-            double initialDeposit = sc.nextDouble();
-            account = new Account(NumberAccount, name, initialDeposit);
-        } else {
-            account = new Account(NumberAccount, name);
-
+        for (int i = 0; i < vect.length; i++) {
+            System.out.print("Digite um numero: ");
+            vect[i] = sc.nextInt();
         }
-        System.out.println();
-        System.out.println("Account data: " + account);
+        
+        System.out.println("NUMEROS NEGATIVOS:");
 
-        System.out.println();
-        System.out.println("Enter the deposit to be added: R$ ");
-        double Deposit = sc.nextDouble();
-        account.deposit(Deposit);
-
-        System.out.println();
-        System.out.println("Account data updated: " + account);
-
-        System.out.println();
-        System.out.println("Enter the deposit to be removed: R$ ");
-        Deposit = sc.nextDouble();
-        account.withdraw(Deposit);
-
-        System.out.println();
-        System.out.println("Account data updated: " + account);
-
+        for (int i = 0;i < n; i++) {
+            if (vect[i]< 0) {
+                System.out.printf("%d\n", vect[i]);
+                
+            }
+        }
         sc.close();
     }
 }
