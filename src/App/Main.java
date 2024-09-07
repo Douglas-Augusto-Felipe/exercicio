@@ -11,24 +11,33 @@ public class Main {
         Locale.setDefault(Locale.US);
         Scanner sc = new Scanner(System.in);
 
-        System.err.print("Quantos numeros você vai digitar? ");
+        double sum, media;
+
+        System.out.print("Quantos numeros você vai digitar? ");
         int n = sc.nextInt();
-        int[] vect = new int[n];
-        sc.nextLine();
+
+        double[] vect = new double[n];
 
         for (int i = 0; i < vect.length; i++) {
+            sc.nextLine();
             System.out.print("Digite um numero: ");
-            vect[i] = sc.nextInt();
+            vect[i] = sc.nextDouble();
         }
-        
-        System.out.println("NUMEROS NEGATIVOS:");
+        sum = 0;
+        for (int i = 0; i < n; i++) {
+            sum = sum + vect[i];
+        }
+        media = sum / n;
 
-        for (int i = 0;i < n; i++) {
-            if (vect[i]< 0) {
-                System.out.printf("%d\n", vect[i]);
-                
-            }
+        System.out.println("VALORES = ");
+
+        for (int i = 0; i < n; i++) {
+            System.out.printf("%.1f " , vect[i]);
         }
+        System.out.printf("\nSOMA = %.2f\n", sum);
+
+        System.out.printf("MEDIA = %.2f", media);
+
         sc.close();
     }
 }
