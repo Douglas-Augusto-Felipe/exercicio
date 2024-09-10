@@ -11,8 +11,7 @@ public class Main {
 
         Locale.setDefault(Locale.US);
         Scanner sc = new Scanner(System.in);
-        double media, sum, alturaMenores, percentualMenores;
-        int idade;
+        double media, sum, alturaMenores, percentualMenores, idade;
         String names;
 
         System.out.print("Quantas pessoas serao digitadas? ");
@@ -46,14 +45,14 @@ public class Main {
         alturaMenores = 0;
 
         for (int i = 0; i < n; i++) {
-            if (idade < 16) {
+            if (vect[i].getAge() < 16) {
                 alturaMenores++;
             }
         }
         percentualMenores = ((double) alturaMenores / n) * 100.0;
 
         for (int i = 0; i < n; i++) {
-            idade = idade + vect[i].getAge();
+            idade = idade + alturaMenores;
             if (alturaMenores < 16) {
                 System.out.printf("%s\n", names);
             }
