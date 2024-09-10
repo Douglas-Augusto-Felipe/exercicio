@@ -22,7 +22,7 @@ public class Main {
         for (int i = 0; i < vect.length; i++) {
             System.out.printf("Dados da %da pessoa:%n", i + 1);
             System.out.print("Nome: ");
-            String name = sc.nextLine();
+            String name = sc.next();
             sc.nextLine();
             System.out.print("Idade: ");
             int age = sc.nextInt();
@@ -32,7 +32,7 @@ public class Main {
 
             vect[i] = new Person(name, age, height);
         }
-        sc.nextLine();
+       
 
         sum = 0;
         for (int i = 0; i < n; i++) {
@@ -47,18 +47,22 @@ public class Main {
         for (int i = 0; i < n; i++) {
             if (vect[i].getAge() < 16) {
                 alturaMenores++;
+                names = names + vect[i].getName();
             }
         }
+        System.err.println("");
+
         percentualMenores = ((double) alturaMenores / n) * 100.0;
 
-        for (int i = 0; i < n; i++) {
-            if (alturaMenores <= 16) {
-                System.out.printf("%s\n", names);
-            }
-        }
-
+        
         System.out.printf("Pessoas com menos de 16 anos: %.1f%%\n", percentualMenores);
         System.out.printf("Altura média: %.2f", media);
+        
+        for (int i = 0; i < n; i++) {
+            if (alturaMenores <= 16) {
+                System.out.println(names);
+            }
+        }
 
         sc.close();
     }
