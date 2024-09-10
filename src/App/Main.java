@@ -52,8 +52,7 @@ public class Main {
         percentualMenores = ((double) alturaMenores / n) * 100.0;
 
         for (int i = 0; i < n; i++) {
-            idade = idade + alturaMenores;
-            if (alturaMenores < 16) {
+            if (alturaMenores <= 16) {
                 System.out.printf("%s\n", names);
             }
         }
