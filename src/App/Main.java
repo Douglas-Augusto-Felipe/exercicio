@@ -8,28 +8,33 @@ public class Main {
 
         Locale.setDefault(Locale.US);
         Scanner sc = new Scanner(System.in);
-        int n, qntpares;
+        int n, posmaior;
+        double maior;
 
         System.out.print("Quantos numeros voce vai digitar? ");
 
         n = sc.nextInt();
 
-        int[] numbers = new int[n];
+        double[] numbers = new double[n];
 
         for (int i = 0; i < numbers.length; i++) {
             System.out.print("Digite um numero: ");
-            numbers[i] = sc.nextInt();
+            numbers[i] = sc.nextDouble();
         }
 
+        maior = numbers[0];
+        posmaior = 0;
+
         System.out.println("\nNUMEROS PARES:");
-        qntpares = 0;
+
         for (int i = 0; i < numbers.length; i++) {
-            if (numbers[i] % 2 == 0) {
-                System.out.printf("%d ", numbers[i]);
-                qntpares++;
+            if (numbers[i] > maior) {
+                maior = numbers[i];
+                posmaior = i;
             }
         }
-        System.out.printf("\n\nQUANTIDADE DE PARES = %d\n " , qntpares);
+        System.out.printf("MAIOR VALOR = %.1f\n", maior);
+        System.out.printf("POSICAO DO MAIOR VALOR = %d\n", posmaior);
 
         sc.close();
     }
